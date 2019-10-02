@@ -46,18 +46,24 @@ class ViewController: UIViewController {
         
         //For testing purposes, what was the text?
         print("For testing purposes, the guess made was \(guessNumber)")
+        let message1 = "Guess lower next time"
+        let message2 = "Guess higher next time"
+        let message3 = "You are correct"
+        
+        let synthesizer = AVSpeechSynthesizer()
         
         //give the appropriate feedback to the user
         if guessNumber > targetNumber{
-            print("Guess lower next time")
-            
+            let utterance1 = AVSpeechUtterance(string: message1)
+            synthesizer.speak(utterance1)
             
         } else if guessNumber < targetNumber {
-            print("Guess higher next time")
-            
+            let utterance2 = AVSpeechUtterance(string: message2)
+            synthesizer.speak(utterance2)
             
         } else {
-            print("You are correct")
+            let utterance3 = AVSpeechUtterance(string: message3)
+            synthesizer.speak(utterance3)
             
             
         }
